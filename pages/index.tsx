@@ -1,8 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link";
 
 const Home = () => {
@@ -12,41 +25,58 @@ const Home = () => {
       
       <p className="font-bold capitalize text-2xl">guide expenses</p>
 
-      <Tabs defaultValue="login" className="w-[320px]">
-        <TabsList className="w-full">
-          <TabsTrigger value="login" className="w-full">Login</TabsTrigger>
-          <TabsTrigger value="signup" className="w-full">Sign Up</TabsTrigger>
-        </TabsList>
-        <div className="flex flex-col border rounded shadow w-[320px] p-6 mt-2">
-          <TabsContent value="login" className="flex flex-col gap-3">
-            <p className="font-bold">Login</p>
-            <span className="text-sm text-gray-500">Login here if you have an account</span>
-            <div className="flex flex-col">
-              <Label>email</Label>
-              <Input type="email" />
+      <Tabs defaultValue="login" className="w-[340px]">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="login">Login</TabsTrigger>
+        <TabsTrigger value="signup">Signup</TabsTrigger>
+      </TabsList>
+      <TabsContent value="login">
+        <Card>
+          <CardHeader>
+            <CardTitle>Login</CardTitle>
+            <CardDescription>
+              Login into account
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="name">email</Label>
+              <Input id="name" defaultValue="Pedro Duarte" />
             </div>
-            <div className="flex flex-col">
-              <Label>password</Label>
-              <Input type="password" />
+            <div className="space-y-1">
+              <Label htmlFor="username">password</Label>
+              <Input id="username" defaultValue="@peduarte" />
             </div>
-            <Button>Login</Button>
-          </TabsContent>
-          <TabsContent value="signup" className="flex flex-col gap-3">
-            <p className="font-bold">Sign up</p>
-            <span className="text-sm text-gray-500">Create a new account</span>
-            <div className="flex flex-col">
-              <Label>email</Label>
-              <Input type="email" />
+          </CardContent>
+          <CardFooter>
+            <Button>Save changes</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="signup">
+        <Card>
+          <CardHeader>
+            <CardTitle>Signup</CardTitle>
+            <CardDescription>
+              Create a new account
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="current">Email</Label>
+              <Input id="current" type="password" />
             </div>
-            <div className="flex flex-col">
-              <Label>password</Label>
-              <Input type="password" />
+            <div className="space-y-1">
+              <Label htmlFor="new">Password</Label>
+              <Input id="new" type="password" />
             </div>
-            <Button>Sign Up</Button>
-          </TabsContent>
-
-        </div>
-      </Tabs>
+          </CardContent>
+          <CardFooter>
+            <Button>Save password</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+    </Tabs>
 
       <Link href="/user">
         <Button>Go to User Page</Button>
