@@ -21,7 +21,7 @@ import Link from "next/link";
 const Home = () => {
 
   return (
-    <div className="flex flex-col gap-4 p-4 justify-center items-center capitalize">
+    <div className="flex flex-col gap-4 p-4 justify-center items-center capitalize min-h-screen">
       
       <p className="font-bold capitalize text-2xl">guide expenses</p>
 
